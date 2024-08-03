@@ -1,0 +1,7 @@
+<a [routerLink]="['/serie', serie.id]">
+    <div [ngClass]="styles.slide">
+      <img [src]="getThumbnailUrl()" [alt]="serie.name" [ngClass]="styles.slideImg"/>
+      <p [ngClass]="styles.slideTitle">{{ serie.name }}</p>
+      <p [ngClass]="styles.slideDescription">{{ serie.synopsis }}</p>
+    </div>
+  </a>

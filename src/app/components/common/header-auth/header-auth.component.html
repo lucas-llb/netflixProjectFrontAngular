@@ -1,0 +1,33 @@
+<div class="container" [ngClass]="styles.nav">
+    <a routerLink="/home">
+      <img src="/logoOnebitflix.svg" alt="logoOnebitflix" [ngClass]="styles.imgLogoNav"/>
+    </a>
+    <div class="d-flex align-items-center">
+      <form [formGroup]="searchForm" (ngSubmit)="handleSearch($event)">
+        <input
+          formControlName="search"
+          type="search"
+          placeholder="Search"
+          [ngClass]="styles.input"
+          [(ngModel)]="searchName"
+        />
+      </form>
+      <img
+        src="/homeAuth/iconSearch.svg"
+        alt="SearchHeader"
+        [ngClass]="styles.searchImg"
+        (click)="handleSearchClick()"
+      />
+      <p [ngClass]="styles.userProfile" (click)="handleOpenModal(content)">
+        {{ initials }}
+      </p>
+    </div>
+    <ng-template #content let-modal>
+      <div [ngClass]="styles.modal">
+        <a routerLink="/profile">
+          <p [ngClass]="styles.modalLink">My configurations</p>
+        </a>
+        <p [ngClass]="styles.modalLink" (click)="handleLogout()">Exit</p>
+      </div>
+    </ng-template>
+  </div>
