@@ -1,0 +1,28 @@
+<ng-container *ngIf="loading; else content">
+    <app-page-spinner></app-page-spinner>
+  </ng-container>
+  <ng-template #content>
+    <head>
+      <title>Netflix - {{ searchName }}</title>
+      <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+    </head>
+    <main class="main">
+      <div class="headerFooterBg">
+        <app-header-auth></app-header-auth>
+      </div>
+      <div *ngIf="searchResult.length >= 1; else noContent" class="searchResult">
+        <div class="d-flex flex-wrap justify-content-center gap-5 py-4">
+          <app-search-card *ngFor="let serie of searchResult" [serie]="serie"></app-search-card>
+        </div>
+      </div>
+      <ng-template #noContent>
+        <div class="searchResult">
+          <p class="noSearchText">No content</p>
+        </div>
+      </ng-template>
+      <div class="headerFooterBg">
+        <app-footer></app-footer>
+      </div>
+    </main>
+  </ng-template>
+  

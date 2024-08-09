@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./styles.module.scss']
 })
 export class ToastComponent {
-  @Input() isOpen: boolean;
-  @Input() message: string;
-  @Input() color: string;
+  @Input() isOpen: boolean | undefined;
+  @Input() message: string | undefined;
+  @Input() color: string | undefined;
 }

@@ -1,0 +1,10 @@
+<div class="episodeCard" (click)="handleEpisodePlayer()">
+    <div class="episodeOrderTime">
+      <p class="episodeOrder">Episode nº {{ episode.order }}</p>
+      <p class="episodeTime">{{ handleSecondsToMinutes(episode.secondsLong) }}</p>
+    </div>
+    <div class="episodeTitleDescription">
+      <p class="episodeTitle">{{ episode.name }}</p>
+      <p class="episodeDescription">{{ episode.synopsis }}</p>
+    </div>
+  </div>

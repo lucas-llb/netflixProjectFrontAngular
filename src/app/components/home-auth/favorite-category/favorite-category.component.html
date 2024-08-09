@@ -1,0 +1,14 @@
+<p class="titleCategory">My List</p>
+<div *ngIf="error">{{ error }}</div>
+<div *ngIf="!data">
+  <app-page-spinner></app-page-spinner>
+</div>
+<div *ngIf="data">
+  <ng-container *ngIf="data.data.series.length >= 1; else noFavorites">
+    <app-slide-component [serie]="data.data.series"></app-slide-component>
+  </ng-container>
+  <ng-template #noFavorites>
+    <p class="text-center pt-3 h5"><strong>You do not have any favorites</strong></p>
+  </ng-template>
+</div>
+

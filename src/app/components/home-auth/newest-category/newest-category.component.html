@@ -1,0 +1,13 @@
+<ng-container *ngIf="error; else content">
+    <div>{{ error }}</div>
+  </ng-container>
+  <ng-template #content>
+    <ng-container *ngIf="!data; else seriesList">
+      <app-page-spinner></app-page-spinner>
+    </ng-container>
+    <ng-template #seriesList>
+      <p class="titleCategory">NEWEST</p>
+      <app-slide-component [serie]="data.data"></app-slide-component>
+    </ng-template>
+  </ng-template>
+  

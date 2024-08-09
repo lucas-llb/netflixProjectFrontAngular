@@ -1,10 +1,10 @@
-<div [ngClass]="styles.header">
-    <div class="container" [ngClass]="styles.headerContainer">
+<div class="styles.header">
+    <div class="headerContainer">
       <a [routerLink]="logoUrl">
-        <img src="/logoOnebitflix.svg" alt="logoRegister" [ngClass]="styles.headerLogo"/>
+        <img src="/logoOnebitflix.svg" alt="logoRegister" class="headerLogo"/>
       </a>
       <a [routerLink]="btnUrl">
-        <button type="button" class="btn btn-outline-light" [ngClass]="styles.headerBtn">{{ btnContent }}</button>
+        <button type="button" class="headerBtn">{{ btnContent }}</button>
       </a>
     </div>
   </div>

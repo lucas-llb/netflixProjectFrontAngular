@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./styles.module.scss']
 })
 export class HeaderGenericComponent {
-  @Input() logoUrl: string;
-  @Input() btnUrl: string;
-  @Input() btnContent: string;
+  @Input() logoUrl: string | undefined;
+  @Input() btnUrl: string | undefined;
+  @Input() btnContent: string | undefined;
 }

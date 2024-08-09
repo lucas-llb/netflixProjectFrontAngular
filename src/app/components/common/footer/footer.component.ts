@@ -3,9 +3,9 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-footer',
   template: `
-    <div class="container" [ngClass]="styles.footer">
-      <img src="/logoOnebitcode.svg" alt="logoFooter" [ngClass]="styles.footerLogo"/>
-      <a href="http://someSite.com" target="_blank" [ngClass]="styles.footerLink">Some Site</a>
+    <div class="footer">
+      <img src="/logoOnebitcode.svg" alt="logoFooter" class="footerLogo"/>
+      <a href="http://someSite.com" target="_blank" class="footerLink">Some Site</a>
     </div>
   `,
   styleUrls: ['./footer.component.scss']

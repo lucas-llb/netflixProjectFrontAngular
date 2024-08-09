@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { ProfileService } from '@/services/profile.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ProfileService } from '../../../services/profile.service';
 
 @Component({
   selector: 'app-header-auth',
@@ -27,7 +27,7 @@ export class HeaderAuthComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.profileService.fetchCurrent().then(user => {
+    this.profileService.fetchCurrent().subscribe(user => {
       const firstNameInitial = user.data.firstName.slice(0, 1);
       const lastNameInitial = user.data.lastName.slice(0, 1);
       this.initials = firstNameInitial + lastNameInitial;
