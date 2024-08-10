@@ -1,1 +1,47 @@
-<p>profile works!</p>
+<ng-container *ngIf="loading; else content">
+    <app-page-spinner></app-page-spinner>
+  </ng-container>
+  <ng-template #content>
+    <head>
+      <title>Netflix - My account</title>
+      <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+    </head>
+    <main class="main">
+      <div class="header">
+        <app-header-auth></app-header-auth>
+      </div>
+      <div class="grid-container">
+        <p class="title">My account</p>
+        <div class="row pt-3 pb-5">
+          <div class="col-md-4 btn-column">
+            <button
+              class="render-form"
+              [ngStyle]="{'color': form === 'userForm' ? '#FF0044' : 'white'}"
+              (click)="setForm('userForm')"
+            >
+              Personal data
+            </button>
+            <button
+              class="render-form"
+              [ngStyle]="{'color': form === 'passwordForm' ? '#FF0044' : 'white'}"
+              (click)="setForm('passwordForm')"
+            >
+              Password
+            </button>
+          </div>
+          <div class="col-md">
+            <ng-container *ngIf="form === 'userForm'; else passwordForm">
+              <app-user-form></app-user-form>
+            </ng-container>
+            <ng-template #passwordForm>
+              <app-password-form></app-password-form>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <app-footer></app-footer>
+      </div>
+    </main>
+  </ng-template>
+  

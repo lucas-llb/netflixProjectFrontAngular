@@ -1,1 +1,48 @@
-<p>login works!</p>
+<head>
+  <title>Netflix - Login</title>
+  <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+</head>
+<main>
+  <app-header-generic
+    [logoUrl]="'/'"
+    [btnUrl]="'/register'"
+    [btnContent]="'Sign in'"
+  ></app-header-generic>
+  <div class="container py-5">
+    <p class="form-title">Welcome back</p>
+    <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+      <p class="text-center">
+        <strong>Welcome to Netflix</strong>
+      </p>
+      <div class="form-group">
+        <label for="email" class="label">E-MAIL</label>
+        <input
+          id="email"
+          formControlName="email"
+          type="email"
+          placeholder="What's your e-mail?"
+          required
+          class="input"
+        />
+      </div>
+      <div class="form-group">
+        <label for="password" class="label">PASSWORD</label>
+        <input
+          id="password"
+          formControlName="password"
+          type="password"
+          placeholder="What's your password?"
+          required
+          class="input"
+        />
+      </div>
+      <button type="submit" class="form-btn">Sign in</button>
+    </form>
+    <app-toast
+      [color]="toastColor"
+      [isOpen]="toastIsOpen"
+      [message]="toastMessage"
+    ></app-toast>
+  </div>
+  <app-footer></app-footer>
+</main>

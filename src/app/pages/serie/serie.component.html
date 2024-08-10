@@ -1,0 +1,83 @@
+<ng-container *ngIf="loading; else content">
+    <app-page-spinner></app-page-spinner>
+  </ng-container>
+  
+  <ng-template #content>
+    <head>
+      <title>Netflix - {{ serie?.name }}</title>
+      <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
+    </head>
+    <main>
+      <div
+        [ngStyle]="{
+          'background-image': 'linear-gradient(to bottom, #6666661a, #151515), url(' + backendApiUrl + '/' + serie?.thumbnailUrl + ')',
+          'background-size': 'cover',
+          'background-position': 'center',
+          'min-height': '450px'
+        }"
+      >
+        <app-header-auth></app-header-auth>
+      </div>
+      <div class="serie-info">
+        <p class="serie-title">{{ serie?.name }}</p>
+        <p class="serie-description">{{ serie?.synopsis }}</p>
+        <button
+          outline
+          class="serie-btn"
+          [disabled]="serie?.episodes?.length === 0"
+          (click)="watchNow()"
+        >
+          WATCH NOW
+          <img src="/buttonPlay.svg" alt="buttonImg" class="button-img" />
+        </button>
+        <div class="interactions">
+          <img
+            *ngIf="!liked; else likedTemplate"
+            src="/course/iconLike.svg"
+            alt="likeImg"
+            class="interaction-img"
+            (click)="handleLikeSerie()"
+          />
+          <ng-template #likedTemplate>
+            <img
+              src="/course/iconLiked.svg"
+              alt="likeImg"
+              class="interaction-img"
+              (click)="handleLikeSerie()"
+            />
+          </ng-template>
+          <img
+            *ngIf="!favorited; else favoritedTemplate"
+            src="/course/iconAddFav.svg"
+            alt="FavImg"
+            class="interaction-img"
+            (click)="handleFavoriteSerie()"
+          />
+          <ng-template #favoritedTemplate>
+            <img
+              src="/course/iconFavorited.svg"
+              alt="FavImg"
+              class="interaction-img"
+              (click)="handleFavoriteSerie()"
+            />
+          </ng-template>
+        </div>
+      </div>
+      <div class="episode-info">
+        <p class="episode-division">EPISODES</p>
+        <p class="episode-length">{{ serie.episodes?.length }} episodes</p>
+        <p *ngIf="serie.episodes?.length === 0">
+          <strong>Sorry, we don't have any episodes yet. 🤘</strong>
+        </p>
+        <ng-container *ngIf="serie.episodes?.length > 0">
+          <app-episode-list
+            *ngFor="let episode of serie.episodes"
+            [episode]="episode"
+            [serie]="serie"
+          ></app-episode-list>
+        </ng-container>
+      </div>
+      <app-footer></app-footer>
+    </main>
+  </ng-template>
+  
