@@ -1,7 +1,12 @@
 <div class="d-flex flex-column align-items-center py-5">
-    <ngb-carousel *ngIf="serie.length > 0">
-      <ng-template ngbSlide *ngFor="let serieItem of serie">
-        <app-slide-card [serie]="serieItem"></app-slide-card>
-      </ng-template>
-    </ngb-carousel>
-  </div>
+  <p-carousel 
+    [value]="serie" 
+    [numVisible]="slideCount" 
+    [numScroll]="1" 
+    [circular]="true" 
+    [responsiveOptions]="responsiveOptions">
+    <ng-template pTemplate="item" let-serie>
+      <app-slide-card [serie]="serie"></app-slide-card>
+    </ng-template>
+  </p-carousel>
+</div>
