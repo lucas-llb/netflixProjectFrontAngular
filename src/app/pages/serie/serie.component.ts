@@ -1,17 +1,21 @@
 import { Component, OnInit } from '@angular/core';
 import { SerieService, SerieType } from '../../services/serie.service';
 import { environment } from '../../environment';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { SpinnerComponent } from '../../components/common/spinner/spinner.component';
+import { HeaderAuthComponent } from '../../components/common/header-auth/header-auth.component';
+import { EpisodeListComponent } from '../../components/episode-list/episode-list.component';
+import { FooterComponent } from '../../components/common/footer/footer.component';
 
 @Component({
   selector: 'app-serie',
   standalone: true,
-  imports: [],
+  imports: [SpinnerComponent, HeaderAuthComponent, EpisodeListComponent, FooterComponent, RouterModule, ],
   templateUrl: './serie.component.html',
   styleUrl: './serie.component.scss'
 })
 export class SerieComponent implements OnInit {
-  serie: SerieType;
+  serie: SerieType | undefined;
   liked = false;
   favorited = false;
   loading = true;
@@ -50,13 +54,13 @@ export class SerieComponent implements OnInit {
 
   async handleLikeSerie(): Promise<void> {
     if (this.liked) {
-      this.serieService.removeLike(this.serie.id).subscribe({
+      this.serieService.removeLike(this.serie!.id).subscribe({
         next: () => {
           this.liked = false;
         }
       });
     } else {
-      this.serieService.addLike(this.serie.id).subscribe({
+      this.serieService.addLike(this.serie!.id).subscribe({
         next: () => {
           this.liked = true;
         }
@@ -66,13 +70,13 @@ export class SerieComponent implements OnInit {
 
   async handleFavoriteSerie(): Promise<void> {
     if (this.favorited) {
-      this.serieService.removeFavorite(this.serie.id).subscribe({
+      this.serieService.removeFavorite(this.serie!.id).subscribe({
         next: () => {
           this.favorited = false;
         }
       });
     } else {
-      this.serieService.addToFavorite(this.serie.id).subscribe({
+      this.serieService.addToFavorite(this.serie!.id).subscribe({
         next: () => {
           this.favorited = true;
         }

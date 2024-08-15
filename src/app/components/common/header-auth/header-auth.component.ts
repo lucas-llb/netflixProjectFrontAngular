@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+import { FormBuilder, FormGroup, FormsModule } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileService } from '../../../services/profile.service';
 
 @Component({
   selector: 'app-header-auth',
   templateUrl: './header-auth.component.html',
-  styleUrls: ['./styles.module.scss']
+  styleUrls: ['./styles.module.scss'],
+  imports: [ FormsModule, RouterModule, ProfileService ],
+  standalone: true,
 })
 export class HeaderAuthComponent implements OnInit {
   modalOpen = false;

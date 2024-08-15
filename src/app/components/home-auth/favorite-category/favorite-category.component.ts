@@ -1,10 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { SerieService } from '../../../services/serie.service';
+import { SpinnerComponent } from '../../common/spinner/spinner.component';
+import { SlideComponent } from '../../common/slide-component/slide-component.component';
 
 @Component({
   selector: 'app-favorite-category',
   templateUrl: './favorite-category.component.html',
-  styleUrls: ['./favorite-category.component.scss']
+  styleUrls: ['./favorite-category.component.scss'],
+  imports: [SpinnerComponent, SlideComponent],
+  standalone: true,
 })
 export class FavoriteCategoryComponent implements OnInit {
   data: any;

@@ -19,7 +19,8 @@ interface LoginParams {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+  
 })
 export class AuthService {
   private apiUrl = environment.BACKEND_API_URL;

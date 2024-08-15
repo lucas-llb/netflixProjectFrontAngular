@@ -1,12 +1,14 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { EpisodeService } from '../../services/episodes.service';
 import { SerieService, SerieType } from '../../services/serie.service';
+import { SpinnerComponent } from '../../components/common/spinner/spinner.component';
+import { HeaderGenericComponent } from '../../components/common/header-generic/header-generic.component';
 
 @Component({
   selector: 'app-episode',
   standalone: true,
-  imports: [],
+  imports: [SpinnerComponent, RouterModule, HeaderGenericComponent],
   templateUrl: './episode.component.html',
   styleUrl: './episode.component.scss'
 })
@@ -28,9 +30,9 @@ export class EpisodeComponent implements OnInit{
     private episodeService: EpisodeService,
     private serieService: SerieService
   ) {
-    this.episodeOrder = parseFloat(this.route.snapshot.paramMap.get('id') || '');
-    this.episodeId = parseFloat(this.route.snapshot.paramMap.get('episodeid') || '');
-    this.serieId = this.route.snapshot.paramMap.get('serieid') || '';
+    this.episodeOrder = parseFloat(this.route.snapshot.paramMap.get('order') || '');
+    this.episodeId = parseFloat(this.route.snapshot.queryParamMap.get('episodeid') || '');
+    this.serieId = this.route.snapshot.queryParamMap.get('serieid') || '';
   }
 
   ngOnInit(): void {

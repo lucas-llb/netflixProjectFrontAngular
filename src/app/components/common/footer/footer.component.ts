@@ -8,8 +8,8 @@ import { Component } from '@angular/core';
       <a href="http://someSite.com" target="_blank" class="footerLink">Some Site</a>
     </div>
   `,
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
+  standalone: true,
 })
 export class FooterComponent {
-  styles = require('./styles.module.scss');
 }

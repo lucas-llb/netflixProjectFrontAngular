@@ -1,13 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
+import { HeaderGenericComponent } from '../../components/common/header-generic/header-generic.component';
+import { FooterComponent } from '../../components/common/footer/footer.component';
+import { ToastComponent } from '../../components/common/toast/toast.component';
 
 
 @Component({
   selector: 'app-register',
+  standalone: true,
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
+  imports: [HeaderGenericComponent, FooterComponent, ToastComponent, FormsModule, RouterModule],
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;

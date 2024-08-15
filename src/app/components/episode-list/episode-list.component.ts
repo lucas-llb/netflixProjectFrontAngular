@@ -1,11 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { EpisodeType, SerieType } from '../../services/serie.service';
 
 @Component({
   selector: 'app-episode-list',
   templateUrl: './episode-list.component.html',
-  styleUrls: ['./episode-list.component.scss']
+  styleUrls: ['./episode-list.component.scss'],
+  imports: [RouterModule],
+  standalone: true,
 })
 export class EpisodeListComponent {
   @Input() episode!: EpisodeType;

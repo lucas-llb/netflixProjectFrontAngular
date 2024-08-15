@@ -5,7 +5,8 @@ import { environment } from '../../../environment';
 @Component({
   selector: 'app-slide-card',
   templateUrl: './slide-card.component.html',
-  styleUrls: ['./styles.module.scss']
+  styleUrls: ['./styles.module.scss'],
+  standalone: true,
 })
 export class SlideCardComponent {
   @Input() serie: SerieType | undefined;

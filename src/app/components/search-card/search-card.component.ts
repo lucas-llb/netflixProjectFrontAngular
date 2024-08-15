@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 interface SerieType {
   id: number;
@@ -11,7 +11,9 @@ interface SerieType {
 @Component({
   selector: 'app-search-card',
   templateUrl: './search-card.component.html',
-  styleUrls: ['./search-card.component.scss']
+  styleUrls: ['./search-card.component.scss'],
+  imports: [RouterModule],
+  standalone: true,
 })
 export class SearchCardComponent {
   @Input() serie!: SerieType;

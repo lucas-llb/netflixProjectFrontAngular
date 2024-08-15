@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
-import { HttpClient } from '@angular/common/http';
+import { Router, RouterModule } from '@angular/router';
 import { SerieService, SerieType } from '../../services/serie.service';
+import { SpinnerComponent } from '../../components/common/spinner/spinner.component';
+import { HeaderAuthComponent } from '../../components/common/header-auth/header-auth.component';
+import { SearchCardComponent } from '../../components/search-card/search-card.component';
+import { FooterComponent } from '../../components/common/footer/footer.component';
 
 @Component({
   selector: 'app-search',
+  standalone: true,
   templateUrl: './search.component.html',
-  styleUrls: ['./search.component.scss']
+  styleUrls: ['./search.component.scss'],
+  imports: [SpinnerComponent, HeaderAuthComponent, SearchCardComponent, FooterComponent, RouterModule],
 })
 export class SearchComponent implements OnInit {
   searchName: string | undefined;
   searchResult: SerieType[] = [];
   loading: boolean = true;
 
-  constructor(private router: Router, private serieService: SerieService, private http: HttpClient) {}
+  constructor(private router: Router, private serieService: SerieService) {}
 
   async searchSeries() {
     if (this.searchName) {

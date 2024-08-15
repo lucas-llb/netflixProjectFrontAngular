@@ -6,7 +6,8 @@ import { PrimeNGConfig } from 'primeng/api';
 @Component({
   selector: 'app-slide-component',
   templateUrl: './slide-component.component.html',
-  styleUrls: ['./styles.module.scss']
+  styleUrls: ['./styles.module.scss'],
+  standalone: true,
 })
 export class SlideComponent implements OnInit {
   @Input() serie: SerieType[] | undefined;

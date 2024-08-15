@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { MessageService } from 'primeng/api';
+import { ToastModule } from 'primeng/toast';
 
 @Component({
   selector: 'app-toast',
@@ -10,7 +11,9 @@ import { MessageService } from 'primeng/api';
       top: 1rem;
       right: 1rem;
     }
-  `]
+  `],
+  standalone: true,
+  imports: [ToastModule]
 })
 export class ToastComponent implements OnChanges {
   @Input() isOpen: boolean = false;

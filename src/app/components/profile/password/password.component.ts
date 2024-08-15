@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
 import { ProfileService } from '../../../services/profile.service';
+import { ToastModule } from 'primeng/toast';
+import { ToastComponent } from '../../common/toast/toast.component';
 
 @Component({
   selector: 'app-password',
   standalone: true,
-  imports: [],
+  imports: [ToastComponent, ToastModule, FormsModule],
   templateUrl: './password.component.html',
   styleUrl: './password.component.scss'
 })

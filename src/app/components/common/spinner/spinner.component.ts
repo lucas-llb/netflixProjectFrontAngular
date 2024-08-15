@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 
 @Component({
   selector: 'app-page-spinner',
@@ -23,6 +24,8 @@ import { Component } from '@angular/core';
     .align-items-center {
       align-items: center;
     }
-  `]
+  `],
+  standalone: true,
+  imports: [ ProgressSpinnerModule]
 })
 export class SpinnerComponent {}

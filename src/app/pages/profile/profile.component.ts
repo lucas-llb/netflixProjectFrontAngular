@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { SpinnerComponent } from '../../components/common/spinner/spinner.component';
+import { HeaderAuthComponent } from '../../components/common/header-auth/header-auth.component';
+import { UserComponent } from '../../components/profile/user/user.component';
+import { PasswordComponent } from '../../components/profile/password/password.component';
+import { FooterComponent } from '../../components/common/footer/footer.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [],
+  imports: [SpinnerComponent, HeaderAuthComponent, UserComponent, PasswordComponent, FooterComponent, RouterModule],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.scss'
 })
