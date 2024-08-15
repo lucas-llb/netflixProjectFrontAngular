@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { ProfileService } from '../../../services/profile.service';
 import { ToastComponent } from '../../common/toast/toast.component';
 import { ToastModule } from 'primeng/toast';
+import { CommonModule} from '@angular/common';
 
 @Component({
-  selector: 'app-user',
+  selector: 'app-user-form',
   standalone: true,
-  imports: [ToastComponent, ToastModule, FormsModule, RouterModule],
+  imports: [ToastComponent, ToastModule, FormsModule, RouterModule, CommonModule, ReactiveFormsModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.scss',
 })

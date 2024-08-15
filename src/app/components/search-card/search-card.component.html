@@ -1,5 +1,5 @@
 <div class="searchCard" (click)="navigateToSerie()">
-    <img [src]="`${environment.BACKEND_API_URL}/${serie.thumbnailUrl}`" [alt]="serie.name" class="searchCardImg"/>
-    <p class="searchCardTitle">{{ serie.name }}</p>
-    <p class="searchCardDescription">{{ serie.synopsis }}</p>
+    <img [src]="mountSourceRoute()" [alt]="serie.name" class="searchCardImg"/>
+    <p class="searchCardTitle">{{ serie!.name }}</p>
+    <p class="searchCardDescription">{{ serie!.synopsis }}</p>
   </div>

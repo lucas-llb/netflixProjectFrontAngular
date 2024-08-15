@@ -2,12 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from '../../../services/categories.service';
 import { SpinnerComponent } from '../../common/spinner/spinner.component';
 import { ListCategoriesSlideComponent } from '../list-categories-slide/list-categories-slide.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-list-category',
-  templateUrl: './list-category.component.html',
-  styleUrls: ['./list-category.component.scss'],
-  imports: [SpinnerComponent, ListCategoriesSlideComponent],
+  templateUrl: './list-categories.component.html',
+  styleUrls: ['./list-categories.component.scss'],
+  imports: [SpinnerComponent, ListCategoriesSlideComponent, CommonModule],
   standalone: true,
 })
 export class ListCategoryComponent implements OnInit {

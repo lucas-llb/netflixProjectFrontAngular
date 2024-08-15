@@ -1,16 +1,19 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SerieType } from '../../../services/serie.service';
 import { PrimeNGConfig } from 'primeng/api';
+import { CarouselModule } from 'primeng/carousel';
+import { SlideCardComponent } from '../slide-card/slide-card.component';
 
 
 @Component({
   selector: 'app-slide-component',
   templateUrl: './slide-component.component.html',
-  styleUrls: ['./styles.module.scss'],
+  styleUrls: ['./slide-component.component.scss'],
+  imports: [CarouselModule, SlideCardComponent],
   standalone: true,
 })
 export class SlideComponent implements OnInit {
-  @Input() serie: SerieType[] | undefined;
+  @Input() serie: SerieType[] = [];
   slideCount: number = 0;
   responsiveOptions: any[] = [
     {

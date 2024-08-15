@@ -1,25 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { SerieService } from '../../../services/serie.service';
+import { SerieService, SerieType } from '../../../services/serie.service';
 import { SpinnerComponent } from '../../common/spinner/spinner.component';
 import { HeaderAuthComponent } from '../../common/header-auth/header-auth.component';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { environment } from '../../../environment';
 
 @Component({
   selector: 'app-featured-section',
   templateUrl: './featured-section.component.html',
   styleUrls: ['./featured-section.component.scss'],
-  imports: [SpinnerComponent, HeaderAuthComponent],
+  imports: [SpinnerComponent, HeaderAuthComponent, RouterModule, CommonModule],
   standalone: true,
 })
 export class FeaturedSectionComponent implements OnInit {
-  data: any;
+  data: SerieType[] = [];
   error: any;
+  backendApiUrl = environment.BACKEND_API_URL;
 
   constructor(private serieService: SerieService) {}
 
   ngOnInit(): void {
     this.serieService.getFeaturedSeries().subscribe(
       (response) => {
-        this.data = response;
+        this.data = response.data;
       },
       (error) => {
         this.error = error;

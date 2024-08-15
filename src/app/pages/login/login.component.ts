@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { HeaderGenericComponent } from '../../components/common/header-generic/header-generic.component';
 import { ToastComponent } from '../../components/common/toast/toast.component';
@@ -10,7 +10,7 @@ import { FooterComponent } from '../../components/common/footer/footer.component
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
-  imports: [HeaderGenericComponent, FormsModule, ToastComponent, FooterComponent, RouterModule],
+  imports: [HeaderGenericComponent, FormsModule, ToastComponent, FooterComponent, RouterModule, ReactiveFormsModule],
   standalone: true,
 })
 export class LoginComponent implements OnInit {
@@ -33,12 +33,6 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     if (sessionStorage.getItem('netflix-token')) {
       this.router.navigate(['/home']);
-    }
-    
-    const registerSuccess =
-    this.router.getCurrentNavigation()?.extras.state!.registered;
-    if (registerSuccess === 'true') {
-      this.showToast('bg-success', 'Register successful!');
     }
   }
   

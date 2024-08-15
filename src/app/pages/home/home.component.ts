@@ -7,11 +7,12 @@ import { FavoriteCategoryComponent } from '../../components/home-auth/favorite-c
 import { FeaturedCategoryComponent } from '../../components/home-auth/featured-category/featured-category.component';
 import { ListCategoryComponent } from '../../components/home-auth/list-categories/list-categories.component';
 import { FooterComponent } from '../../components/common/footer/footer.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-home-auth',
-  templateUrl: './home-auth.component.html',
-  styleUrls: ['./home-auth.component.css'],
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss'],
   imports: [
     SpinnerComponent,
     FeaturedSectionComponent,
@@ -20,7 +21,8 @@ import { FooterComponent } from '../../components/common/footer/footer.component
     FeaturedCategoryComponent,
     ListCategoryComponent,
     FooterComponent,
-    RouterModule
+    RouterModule,
+    CommonModule
   ],
   standalone: true,
 })

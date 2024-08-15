@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
 import { HeaderGenericComponent } from '../../components/common/header-generic/header-generic.component';
 import { FooterComponent } from '../../components/common/footer/footer.component';
@@ -12,7 +12,7 @@ import { ToastComponent } from '../../components/common/toast/toast.component';
   standalone: true,
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  imports: [HeaderGenericComponent, FooterComponent, ToastComponent, FormsModule, RouterModule],
+  imports: [HeaderGenericComponent, FooterComponent, ToastComponent, FormsModule, RouterModule, ReactiveFormsModule],
 })
 export class RegisterComponent implements OnInit {
   registerForm: FormGroup;

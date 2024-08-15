@@ -6,16 +6,23 @@ import { SpinnerComponent } from '../../components/common/spinner/spinner.compon
 import { HeaderAuthComponent } from '../../components/common/header-auth/header-auth.component';
 import { EpisodeListComponent } from '../../components/episode-list/episode-list.component';
 import { FooterComponent } from '../../components/common/footer/footer.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-serie',
   standalone: true,
-  imports: [SpinnerComponent, HeaderAuthComponent, EpisodeListComponent, FooterComponent, RouterModule, ],
+  imports: [SpinnerComponent, HeaderAuthComponent, EpisodeListComponent, FooterComponent, RouterModule, CommonModule],
   templateUrl: './serie.component.html',
   styleUrl: './serie.component.scss'
 })
 export class SerieComponent implements OnInit {
-  serie: SerieType | undefined;
+  serie: SerieType = {
+    id: 0,
+    name: '',
+    synopsis: '',
+    thumbnailUrl : '',
+    episodes: [],
+  };
   liked = false;
   favorited = false;
   loading = true;

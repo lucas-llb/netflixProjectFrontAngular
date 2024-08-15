@@ -4,16 +4,24 @@ import { EpisodeService } from '../../services/episodes.service';
 import { SerieService, SerieType } from '../../services/serie.service';
 import { SpinnerComponent } from '../../components/common/spinner/spinner.component';
 import { HeaderGenericComponent } from '../../components/common/header-generic/header-generic.component';
+import { environment } from '../../environment';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-episode',
   standalone: true,
-  imports: [SpinnerComponent, RouterModule, HeaderGenericComponent],
+  imports: [SpinnerComponent, RouterModule, HeaderGenericComponent, CommonModule],
   templateUrl: './episode.component.html',
   styleUrl: './episode.component.scss'
 })
 export class EpisodeComponent implements OnInit{
-  serie: SerieType | undefined;
+  serie: SerieType = {
+    id: 0,
+    name: '',
+    synopsis: '',
+    thumbnailUrl : '',
+    episodes: [],
+  };
   episodeTime: number = 0;
   getEpisodeTime: number = 0;
   isReady: boolean = false;
@@ -82,5 +90,15 @@ export class EpisodeComponent implements OnInit{
 
   handleNextEpisode() {
     this.router.navigate([`/serie/episode/${this.episodeOrder + 1}`], { queryParams: { serieid: this.serie?.id, episodeid: this.serie!.episodes![this.episodeOrder + 1]?.id } });
+  }
+
+  handleVideoUpdate($event: Event){
+    const video = $event.target as HTMLVideoElement;
+    this.episodeTime = video.currentTime; 
+  }
+
+  mountSourceUrl(): string
+  {
+    return `${environment.BACKEND_API_URL}/episodes/stream?videoUrl=${this.serie!.episodes![this.episodeOrder].videoUrl}&token=${sessionStorage.getItem('netflix-token')}`
   }
 }

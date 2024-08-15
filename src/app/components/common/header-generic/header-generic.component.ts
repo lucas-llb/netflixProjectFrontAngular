@@ -1,9 +1,11 @@
 import { Component, Input } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header-generic',
   templateUrl: './header-generic.component.html',
-  styleUrls: ['./styles.module.scss'],
+  styleUrls: ['./header-generic.component.scss'],
+  imports: [RouterModule],
   standalone: true,
 })
 export class HeaderGenericComponent {
