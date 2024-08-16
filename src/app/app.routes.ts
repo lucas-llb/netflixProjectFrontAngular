@@ -6,9 +6,11 @@ import { RegisterComponent } from './pages/register/register.component';
 import { SerieComponent } from './pages/serie/serie.component';
 import { EpisodeComponent } from './pages/episode/episode.component';
 import { SearchComponent } from './pages/search/search.component';
+import { HomeNoAuthComponent } from './pages/home-no-auth/home-no-auth.component';
 
 export const routes: Routes = [
-    {path: '', component: HomeComponent},
+    {path: '', component: HomeNoAuthComponent},
+    {path: 'home', component: HomeComponent},
     {path: 'login', component: LoginComponent},
     {path: 'profile', component: ProfileComponent},
     {path: 'register', component: RegisterComponent},

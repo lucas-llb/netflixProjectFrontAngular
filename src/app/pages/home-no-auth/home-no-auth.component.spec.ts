@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SlideSelectionComponent } from './slide-selection.component';
+import { HomeNoAuthComponent } from './home-no-auth.component';
 
-describe('SlideSelectionComponent', () => {
-  let component: SlideSelectionComponent;
-  let fixture: ComponentFixture<SlideSelectionComponent>;
+describe('HomeNoAuthComponent', () => {
+  let component: HomeNoAuthComponent;
+  let fixture: ComponentFixture<HomeNoAuthComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SlideSelectionComponent]
+      imports: [HomeNoAuthComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(SlideSelectionComponent);
+    fixture = TestBed.createComponent(HomeNoAuthComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

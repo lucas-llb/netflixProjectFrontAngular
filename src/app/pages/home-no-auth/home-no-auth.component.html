@@ -1,0 +1,15 @@
+<head>
+    <title>Netflix</title>
+    <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon"/>
+    <meta property="og:title" content="Netflix" key="title" />
+    <meta name="description" content="A video streaming app" />
+  </head>
+  <main>
+    <div class="sectionBackground">
+      <app-header-no-auth></app-header-no-auth>
+      <app-presentation-section></app-presentation-section>
+    </div>
+    <app-card-section></app-card-section>
+    <app-slide-section [newestSeries]="serie"></app-slide-section>
+    <app-footer></app-footer>
+  </main>
