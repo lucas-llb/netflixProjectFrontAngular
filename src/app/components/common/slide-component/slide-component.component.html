@@ -1,12 +1,12 @@
 <div class="d-flex flex-column align-items-center py-5">
   <p-carousel 
-    [value]="serie" 
+    [value]="serie!" 
     [numVisible]="slideCount" 
     [numScroll]="1" 
-    [circular]="true" 
-    [responsiveOptions]="responsiveOptions">
-    <ng-template pTemplate="item" let-serie>
-      <app-slide-card [serie]="serie"></app-slide-card>
+    [responsiveOptions]="responsiveOptions"
+    >
+    <ng-template pTemplate="item" let-seri>
+      <app-slide-card [serie]="seri"></app-slide-card>
     </ng-template>
   </p-carousel>
 </div>

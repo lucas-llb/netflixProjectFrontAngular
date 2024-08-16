@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SerieType } from '../../../services/serie.service';
-import { PrimeNGConfig } from 'primeng/api';
 import { CarouselModule } from 'primeng/carousel';
 import { SlideCardComponent } from '../slide-card/slide-card.component';
 
@@ -13,7 +12,7 @@ import { SlideCardComponent } from '../slide-card/slide-card.component';
   standalone: true,
 })
 export class SlideComponent implements OnInit {
-  @Input() serie: SerieType[] = [];
+  @Input() serie: SerieType[] | undefined;
   slideCount: number = 0;
   responsiveOptions: any[] = [
     {
@@ -33,10 +32,9 @@ export class SlideComponent implements OnInit {
     }
   ];
 
-  constructor(private primengConfig: PrimeNGConfig) {}
+  constructor() {}
   
   ngOnInit(): void {
-    this.primengConfig.ripple = true;
     this.setSlideCount();
   }
 

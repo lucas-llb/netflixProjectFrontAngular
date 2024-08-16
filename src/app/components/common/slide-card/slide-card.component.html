@@ -1,6 +1,6 @@
 <a [routerLink]="['/serie', serie.id]">
     <div class="slide">
-      <img [src]="getThumbnailUrl()" [alt]="serie.name" class="slideImg"/>
+      <img [src]="url" [alt]="serie.name" class="slideImg" loading="lazy"/>
       <p class="slideTitle">{{ serie.name }}</p>
       <p class="slideDescription">{{ serie.synopsis }}</p>
     </div>
