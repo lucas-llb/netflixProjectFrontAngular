@@ -5,12 +5,14 @@ import { AuthService } from '../../services/auth.service';
 import { HeaderGenericComponent } from '../../components/common/header-generic/header-generic.component';
 import { ToastComponent } from '../../components/common/toast/toast.component';
 import { FooterComponent } from '../../components/common/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
   imports: [HeaderGenericComponent, FormsModule, ToastComponent, FooterComponent, RouterModule, ReactiveFormsModule],
+  animations: [BrowserAnimationsModule],
   standalone: true,
 })
 export class LoginComponent implements OnInit {
@@ -40,7 +42,8 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
       this.authService.login({ email, password }).subscribe({
-        next: () => {
+        next: ({token}) => {
+          sessionStorage.setItem('netflix-token', token);
           this.router.navigate(['/home']);
         },
         error: () => {

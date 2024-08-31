@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../environment';
 import { SerieType } from './serie.service';
+import { CategoriesPaginatedResponse } from '../models/category-paginated.response';
 
 
 export interface CategoryType {
@@ -20,10 +21,10 @@ export class CategoriesService {
 
   constructor(private http: HttpClient) {}
 
-  getCategories(): Observable<any> {
+  getCategories(): Observable<CategoriesPaginatedResponse> {
     const token = sessionStorage.getItem('netflix-token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get<any>(this.apiUrl, { headers });
+    return this.http.get<any>(`${this.apiUrl}/index`, { headers });
   }
 
   getSeries(id: number): Observable<any> {

@@ -8,9 +8,9 @@
       <link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
     </head>
     <main>
-      <div
+      <div *ngIf="backgroundImageUrl"
         [ngStyle]="{
-          'background-image': 'linear-gradient(to bottom, #6666661a, #151515), url(' + backendApiUrl + '/' + serie!.thumbnailUrl + ')',
+          'background-image': backgroundImageUrl,
           'background-size': 'cover',
           'background-position': 'center',
           'min-height': '450px'}"

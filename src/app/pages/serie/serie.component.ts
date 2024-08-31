@@ -27,6 +27,7 @@ export class SerieComponent implements OnInit {
   favorited = false;
   loading = true;
   backendApiUrl = environment.BACKEND_API_URL;
+  backgroundImageUrl= '';
 
   constructor(
     private router: Router,
@@ -41,20 +42,24 @@ export class SerieComponent implements OnInit {
       this.loading = false;
     }
 
-    this.route.paramMap.subscribe(params => {
+    this.route.paramMap.subscribe({
+      next: params => {
       const id = params.get('id');
       if (id) {
         this.getSerie(id);
       }
-    });
+    }
+  });
   }
 
   async getSerie(id: string): Promise<void> {
     this.serieService.getEpisodes(id).subscribe({
       next: (res) => {
-        this.serie = res.data;
-        this.liked = res.data.liked;
-        this.favorited = res.data.favorited;
+        this.serie = res;
+        this.liked = res.liked;
+        this.favorited = res.favorited;
+        this.backgroundImageUrl = `linear-gradient(to bottom, #6666661a, #151515), url(${this.backendApiUrl}${this.serie.thumbnailUrl})`;
+        console.log(this.backgroundImageUrl)
       }
     });
   }

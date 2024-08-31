@@ -30,8 +30,8 @@ export class HeaderAuthComponent implements OnInit {
 
   ngOnInit(): void {
     this.profileService.fetchCurrent().subscribe(user => {
-      const firstNameInitial = user.data.firstName.slice(0, 1);
-      const lastNameInitial = user.data.lastName.slice(0, 1);
+      const firstNameInitial = user.firstName.slice(0, 1);
+      const lastNameInitial = user.lastName.slice(0, 1);
       this.initials = firstNameInitial + lastNameInitial;
     });
   }

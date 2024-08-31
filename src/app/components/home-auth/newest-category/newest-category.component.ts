@@ -19,13 +19,13 @@ export class NewestCategoryComponent implements OnInit {
   constructor(private serieService: SerieService) {}
 
   ngOnInit(): void {
-    this.serieService.getNewestSeries().subscribe(
-      (response) => {
+    this.serieService.getNewestSeries().subscribe({
+      next: (response) => {
         this.data = response;
       },
-      (error) => {
+      error: (error) => {
         this.error = error;
       }
-    );
+    });
   }
 }

@@ -18,13 +18,13 @@ export class FavoriteCategoryComponent implements OnInit {
   constructor(private serieService: SerieService) {}
 
   ngOnInit(): void {
-    this.serieService.getFavorites().subscribe(
-      (response) => {
+    this.serieService.getFavorites().subscribe({
+      next: (response) => {
         this.data = response;
       },
-      (error) => {
+      error: (error) => {
         this.error = error;
       }
-    );
+    });
   }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SerieService } from '../../../services/serie.service';
+import { SerieService, SerieType } from '../../../services/serie.service';
 import { SlideComponent } from '../../common/slide-component/slide-component.component';
 import { SpinnerComponent } from '../../common/spinner/spinner.component';
 import { CommonModule } from '@angular/common';
@@ -12,19 +12,19 @@ import { CommonModule } from '@angular/common';
   standalone: true,
 })
 export class FeaturedCategoryComponent implements OnInit {
-  data: any;
+  data: SerieType[] = [];
   error: any;
 
   constructor(private serieService: SerieService) {}
 
   ngOnInit(): void {
-    this.serieService.getFeaturedSeries().subscribe(
-      (response) => {
+    this.serieService.getFeaturedSeries().subscribe({
+      next: (response) => {
         this.data = response;
       },
-      (error) => {
+      error: (error) => {
         this.error = error;
       }
-    );
+    });
   }
 }

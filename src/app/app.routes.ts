@@ -15,6 +15,6 @@ export const routes: Routes = [
     {path: 'profile', component: ProfileComponent},
     {path: 'register', component: RegisterComponent},
     {path: 'search', component: SearchComponent},
-    {path: 'serie/:id', component: SerieComponent},
-    {path: 'serie/episodes/:order', component: EpisodeComponent},
+    {path: 'series/:id', component: SerieComponent},
+    {path: 'serie/episode/:order', component: EpisodeComponent},
 ];

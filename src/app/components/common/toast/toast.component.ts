@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessageService } from 'primeng/api';
-import { RippleModule } from 'primeng/ripple';
 import { ToastModule } from 'primeng/toast';
 
 @Component({
@@ -13,6 +13,7 @@ import { ToastModule } from 'primeng/toast';
       right: 1rem;
     }
   `],
+  animations: [BrowserAnimationsModule],
   standalone: true,
   imports: [ToastModule],
   providers: [MessageService]

@@ -18,13 +18,13 @@ export class ListCategoryComponent implements OnInit {
   constructor(private categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
-    this.categoriesService.getCategories().subscribe(
-      (response) => {
+    this.categoriesService.getCategories().subscribe({
+      next: (response) => {
         this.data = response;
       },
-      (error) => {
+      error: (error) => {
         this.error = error;
       }
-    );
+    });
   }
 }

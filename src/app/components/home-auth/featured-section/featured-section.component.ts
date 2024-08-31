@@ -21,13 +21,13 @@ export class FeaturedSectionComponent implements OnInit {
   constructor(private serieService: SerieService) {}
 
   ngOnInit(): void {
-    this.serieService.getFeaturedSeries().subscribe(
-      (response) => {
-        this.data = response.data;
+    this.serieService.getFeaturedSeries().subscribe({
+      next: (response) => {
+        this.data = response;
       },
-      (error) => {
+      error: (error) => {
         this.error = error;
       }
-    );
+    });
   }
 }

@@ -23,7 +23,6 @@ export class SlideCardComponent implements OnInit {
   
   ngOnInit(): void {
     this.url = `${environment.BACKEND_API_URL}${this.serie?.thumbnailUrl}`;
-    console.log(this.url)
   }
 
   getThumbnailUrl(): string {

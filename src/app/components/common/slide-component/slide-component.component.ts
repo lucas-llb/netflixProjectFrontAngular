@@ -12,7 +12,7 @@ import { SlideCardComponent } from '../slide-card/slide-card.component';
   standalone: true,
 })
 export class SlideComponent implements OnInit {
-  @Input() serie: SerieType[] | undefined;
+  @Input() serie: SerieType[] = [];
   slideCount: number = 0;
   responsiveOptions: any[] = [
     {

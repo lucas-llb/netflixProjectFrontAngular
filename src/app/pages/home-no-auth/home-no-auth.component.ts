@@ -22,7 +22,6 @@ export class HomeNoAuthComponent implements OnInit {
   ngOnInit(): void {
     this.serieService.getNewestSeries().subscribe((data: SerieType[]) => {
       this.serie = data;
-      console.log(this.serie)
     });
   }
 }

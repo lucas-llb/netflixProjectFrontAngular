@@ -51,14 +51,18 @@ export class EpisodeComponent implements OnInit{
     }
     this.getSerie();
     this.handleGetEpisodeTime();
+    console.log(this.serie.episodes![this.episodeOrder].name)
   }
 
   async handleGetEpisodeTime() {
     this.episodeService.getWatchTime(this.episodeId).subscribe({
       next: (res) => {
-        if (res.data !== null) {
-          this.getEpisodeTime = res.data.seconds;
+        if (res.seconds !== null) {
+          this.getEpisodeTime = res.seconds;
         }
+      },
+      error: () => {
+        this.getEpisodeTime = 0;
       }
     });    
   }
@@ -74,7 +78,8 @@ export class EpisodeComponent implements OnInit{
     if (typeof this.serieId !== 'string') return;
     this.serieService.getEpisodes(this.serieId).subscribe({
       next: (res) => {
-        this.serie = res.data;
+        console.log(res)
+        this.serie = res;
       }
     });
   }

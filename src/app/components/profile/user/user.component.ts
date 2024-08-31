@@ -38,14 +38,14 @@ export class UserComponent {
   ngOnInit(): void {
     this.profileService.fetchCurrent().subscribe((user) => {
       this.userForm.patchValue({
-        firstName: user.data.firstName,
-        lastName: user.data.lastName,
-        phone: user.data.phone,
-        email: user.data.email,
-        created_at: user.data.createdAt,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        phone: user.phone,
+        email: user.email,
+        created_at: user.createdAt,
       });
-      this.initialEmail = user.data.email;
-      this.createdAt = user.data.createdAt;
+      this.initialEmail = user.email;
+      this.createdAt = user.createdAt;
     });
   }
 

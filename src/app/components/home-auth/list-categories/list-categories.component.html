@@ -6,7 +6,7 @@
       <app-page-spinner></app-page-spinner>
     </ng-container>
     <ng-template #categoriesList>
-      <ng-container *ngFor="let category of data.data.categories">
+      <ng-container *ngFor="let category of data.categories">
         <app-list-categories-slide [categoryId]="category.id" [categoryName]="category.name"></app-list-categories-slide>
       </ng-container>
     </ng-template>

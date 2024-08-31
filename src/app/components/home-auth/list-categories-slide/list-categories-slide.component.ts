@@ -20,13 +20,13 @@ export class ListCategoriesSlideComponent implements OnInit {
   constructor(private categoriesService: CategoriesService) {}
 
   ngOnInit(): void {
-    this.categoriesService.getSeries(this.categoryId).subscribe(
-      (response) => {
+    this.categoriesService.getSeries(this.categoryId).subscribe({
+      next: (response) => {
         this.data = response;
       },
-      (error) => {
+      error: (error) => {
         this.error = error;
       }
-    );
+    });
   }
 }
