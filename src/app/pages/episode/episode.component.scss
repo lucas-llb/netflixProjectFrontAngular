@@ -2,51 +2,62 @@
     font-size: 36px;
     font-weight: bold;
   }
-  .episode-btn-div {
-    display: flex;
-    gap: 20px;
-  }
-  .episode-btn {
-    border: none;
-    padding: 0;
-    background-color: transparent;
-    font-size: 40px;
-    cursor: pointer;
-    transition: 0.4s;
-    &:hover {
-      border: none;
-      padding: 0;
-      background-color: transparent;
-      font-size: 45px;
-      text-shadow: 6px 4px 4px black;
-    }
-    &:disabled {
-      border: none;
-      padding: 0;
-      background-color: transparent;
-    }
-    &:active {
-      outline: none;
-      border: none;
-      box-shadow: none;
-    }
-    &:focus {
-      outline: none;
-      border: none;
-      box-shadow: transparent;
-      background-color: transparent;
-    }
-  }
+
   .player {
     max-width: 100% !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
   }
-  .arrowImg {
-    width: 25px;
+  .arrow-img {
+    width: 35px;
     transition: 0.4s;
     &:hover {
       transform: scale(1.2);
     }
   }
+  .body {
+    background-color: rgb(126, 119, 119);
+}
+
+.episode-btn-div {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.episode-btn {
+  font-size: 50px;
+  cursor: pointer;
+  transition: 0.4s;
+  border: none;
+  padding: 0;
+  background-color: transparent;
+  &:hover {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+    font-size: 45px;
+    text-shadow: 6px 4px 4px black;
+  }
+  &:disabled {
+    border: none;
+    padding: 0;
+    background-color: transparent;
+  }
+  &:active {
+    outline: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  &:focus {
+    outline: none;
+    border: none;
+    box-shadow: transparent;
+    background-color: transparent;
+  }
+}
   
   @media (max-width: 425px) {
     .episode-title {

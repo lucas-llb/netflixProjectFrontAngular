@@ -1,49 +1,53 @@
 <app-header-generic
-  [logoUrl]="'/home'"
-  [btnContent]="'Return to serie page'"
-  [btnUrl]="'/serie/'+serieId"
+[logoUrl]="'/home'"
+[btnContent]="'Return to serie page'"
+[btnUrl]="'/series/' + serieId"
 ></app-header-generic>
 
-<div *ngIf="loading">
-  <app-page-spinner></app-page-spinner>
-</div>
-
-<div *ngIf="!loading && serie?.episodes">
-  <p class="episode-title">{{ serie.episodes![episodeOrder].name }}</p>
-  <video
-    #player
-    class="player"
-    [src]="mountSourceUrl()"
-    controls
-    (ontimeupdate)="handleVideoUpdate($event)"
-    (onloadedmetadata)="handlePlayerTime()"
-  ></video>
-
-  <div class="episode-btn-div">
-    <button
-      class="episode-btn"
-      [disabled]="episodeOrder === 0"
-      (click)="handleLastEpisode()"
-    >
-      <img
-        src="/episode/iconArrowLeft.svg"
-        alt="arrowLeft"
-        class="arrow-img"
-      />
-    </button>
-    <button
-      class="episode-btn"
-      [disabled]="episodeOrder + 1 === serie.episodes!.length"
-      (click)="handleNextEpisode()"
-    >
-      <img
-        src="/episode/iconArrowRight.svg"
-        alt="arrowRight"
-        class="arrow-img"
-      />
-    </button>
+<div class="d-flex flex-column align-items-center gap-3 pt-3 body">
+  <div *ngIf="loading">
+    <app-page-spinner></app-page-spinner>
   </div>
-  <p class="text-center py-4">
-    {{ serie.episodes![episodeOrder].synopsis }}
-  </p>
+
+  <div *ngIf="!loading && serie?.episodes">
+    <p class="episode-title">{{ serie.episodes![episodeOrder].name }}</p>
+    <video
+      #player
+      class="player"
+      [src]="mountSourceUrl()"
+      controls
+      (ontimeupdate)="handleVideoUpdate($event)"
+      (onloadedmetadata)="handlePlayerTime()"
+    ></video>
+
+    <div class="episode-btn-div">
+      <button
+        class="episode-btn"
+        [disabled]="episodeOrder === 0"
+        (click)="handleLastEpisode()"
+        type="button"
+      >
+        <img
+          src="/episode/iconArrowLeft.svg"
+          alt="arrowLeft"
+          class="arrow-img"
+        />
+      </button>
+      <button
+        class="episode-btn"
+        [disabled]="episodeOrder + 1 === serie.episodes!.length"
+        (click)="handleNextEpisode()"
+        type="button"
+      >
+        <img
+          src="/episode/iconArrowRight.svg"
+          alt="arrowRight"
+          class="arrow-img"
+        />
+      </button>
+    </div>
+    <p class="text-center py-4">
+      {{ serie.episodes![episodeOrder].synopsis }}
+    </p>
+  </div>
 </div>

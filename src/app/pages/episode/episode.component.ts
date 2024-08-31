@@ -51,7 +51,6 @@ export class EpisodeComponent implements OnInit{
     }
     this.getSerie();
     this.handleGetEpisodeTime();
-    console.log(this.serie.episodes![this.episodeOrder].name)
   }
 
   async handleGetEpisodeTime() {
@@ -90,12 +89,16 @@ export class EpisodeComponent implements OnInit{
   }
 
   handleLastEpisode() {
-    this.router.navigate([`/serie/episode/${this.episodeOrder - 1}`], { queryParams: { serieid: this.serie?.id, episodeid: this.serie!.episodes![this.episodeOrder - 1]?.id } });
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate([`/serie/episode/${this.episodeOrder - 1}`], { queryParams: { serieid: this.serie?.id, episodeid: this.serie!.episodes![this.episodeOrder - 1]?.id } })
+    });
   }
 
   handleNextEpisode() {
-    this.router.navigate([`/serie/episode/${this.episodeOrder + 1}`], { queryParams: { serieid: this.serie?.id, episodeid: this.serie!.episodes![this.episodeOrder + 1]?.id } });
-  }
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+      this.router.navigate([`/serie/episode/${this.episodeOrder + 1}`], { queryParams: { serieid: this.serie?.id, episodeid: this.serie!.episodes![this.episodeOrder + 1]?.id } })
+    });
+    }
 
   handleVideoUpdate($event: Event){
     const video = $event.target as HTMLVideoElement;

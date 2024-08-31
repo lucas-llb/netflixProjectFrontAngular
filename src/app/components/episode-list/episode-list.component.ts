@@ -24,7 +24,7 @@ export class EpisodeListComponent {
   }
 
   handleEpisodePlayer(): void {
-    this.router.navigate([`/serie/episode/${this.episode.order - 1}`], {
+    this.router.navigate([`/serie/episode/${this.episode.order}`], {
       queryParams: { serieid: this.serie.id, episodeid: this.episode.id }
     });
   }
